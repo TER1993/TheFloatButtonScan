@@ -91,7 +91,7 @@ public class TheScanManager {
                                                     int which) {
                                     // TODO Auto-generated method stub
                                     Intent intent = new Intent(
-                                            Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                                            Settings.ACTION_SETTINGS);
                                     Activity ac = (Activity) context;
                                     ac.startActivityForResult(intent, 1);
 

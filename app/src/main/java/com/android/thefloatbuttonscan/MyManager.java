@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Handler;
 import android.os.SystemProperties;
 import android.os.Vibrator;
+import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -50,7 +52,10 @@ public class MyManager {
     }
 
     //初始化按钮及功能
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void initialization() {
+
+
         initStatus();
         createWindowManager();
         createDesktopLayout();
@@ -96,7 +101,7 @@ public class MyManager {
     }
 
     private void initStatus() {
-       SharedPreferences mSharedPreferences = context.getSharedPreferences("ButtonStatus", Context.MODE_PRIVATE);
+        SharedPreferences mSharedPreferences = context.getSharedPreferences("ButtonStatus", Context.MODE_PRIVATE);
         ifopen = mSharedPreferences.getBoolean("ifopen", false);
         ifVibrator = mSharedPreferences.getBoolean("ifVibrator", false);
         btnNormal = mSharedPreferences.getInt("btnNormal", R.drawable.red_normal);
@@ -111,8 +116,8 @@ public class MyManager {
     }
 
     /*
-    * 注册广播
-    * */
+     * 注册广播
+     * */
     public void registerMyreceiver() {
         myFloatButtonReceiver = new MyFloatButtonReceiver();
         context.registerReceiver(myFloatButtonReceiver, new IntentFilter(ScanAction.OPEN_FLOAT_WINDOW));
@@ -123,8 +128,8 @@ public class MyManager {
     }
 
     /*
-    * 注销广播
-    * */
+     * 注销广播
+     * */
     public void unregisterMyReceiver() {
         Intent intent = new Intent();
         intent.setAction("com.geomobile.se4500barcode.poweroff");
@@ -133,8 +138,8 @@ public class MyManager {
     }
 
     /*
-    * 内部广播类
-    * */
+     * 内部广播类
+     * */
     public class MyFloatButtonReceiver extends BroadcastReceiver {
 
         @Override
@@ -210,7 +215,7 @@ public class MyManager {
 
 
     /*
-    * 获得系统状态栏高度*/
+     * 获得系统状态栏高度*/
     private int getStatusBarHeight() {
         Class<?> c = null;
 

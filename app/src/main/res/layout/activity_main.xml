@@ -12,7 +12,9 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:ignore="ObsoleteLayoutParam,UselessParent">
+
         <EditText
             android:id="@+id/EditTextReception"
             android:layout_width="fill_parent"
@@ -24,6 +26,7 @@
             android:hint="Reception"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
-            android:textColor="#ffffff" >	</EditText>
+            android:textColor="#ffffff"
+            tools:ignore="ObsoleteLayoutParam,ScrollViewSize,TextFields">	</EditText>
     </ScrollView>
 </RelativeLayout>
