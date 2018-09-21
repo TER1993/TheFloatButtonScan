@@ -24,4 +24,5 @@
     <string name="action_dialog_setting_config">Please check the "Enable Keyreport Scan" and "
         Enable Keyreport Scan with warning tone" of Accessibility</string>
     <string name="action_dialog_setting_config_sure_go">Go to set</string>
+    <string name="open_float">Please open the suspension window authority</string>
 </resources>

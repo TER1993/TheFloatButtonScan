@@ -3,7 +3,9 @@ package com.android.thefloatbuttonscan;
 import android.app.Service;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 
 
 public class MyServiceOfloatButton extends Service {
@@ -12,6 +14,7 @@ public class MyServiceOfloatButton extends Service {
     public MyServiceOfloatButton() {
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate() {
         super.onCreate();

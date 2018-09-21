@@ -2,7 +2,6 @@ package com.android.thefloatbuttonscan;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -21,10 +20,10 @@ public class MainActivity extends Activity {
 
         if (!checkPermission()) {
             requestPermission();
+            Toast.makeText(this, R.string.open_float, Toast.LENGTH_SHORT).show();
         }
 
 
-        this.finish();
     }
 
 
@@ -49,29 +48,13 @@ public class MainActivity extends Activity {
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestPermission() {
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"));
-        startActivityForResult(intent, request_code);
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+        startActivity(intent);
     }
 
-    /**
-     * 回调申请结果
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case 1:
-                //用户授权成功
-                if (checkPermission()) {
-                    //用户拒绝授权
-                } else {
-                    Toast.makeText(this, "弹窗权限被拒绝", Toast.LENGTH_SHORT).show();
-                }
-                finish();
-                break;
-                default:
-                    break;
-        }
 
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+
+
+
+
 }
