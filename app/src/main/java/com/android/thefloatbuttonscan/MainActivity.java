@@ -8,6 +8,9 @@ import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.widget.Toast;
 
+/**
+ * @author xuyan  主页面
+ */
 public class MainActivity extends Activity {
     MyManager myManager;
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -22,7 +25,8 @@ public class MainActivity extends Activity {
             requestPermission();
             Toast.makeText(this, R.string.open_float, Toast.LENGTH_SHORT).show();
         }
-
+        startService(new Intent(this, MyServiceOfloatButton.class));
+        finish();
 
     }
 
@@ -39,11 +43,6 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * 申请权限的状态code
-     */
-    int request_code = 1;
-
-    /**
      * 开启权限管理界面，授权。
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -51,10 +50,5 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
         startActivity(intent);
     }
-
-
-
-
-
 
 }
