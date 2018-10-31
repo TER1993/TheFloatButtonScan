@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 //        myManager.initialization();
 
         if (!checkPermission()) {
+
             requestPermission();
             Toast.makeText(this, R.string.open_float, Toast.LENGTH_SHORT).show();
         }

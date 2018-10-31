@@ -13,7 +13,7 @@
     <string name="DIA_ALERT">Warning！</string>
     <string name="DIA_CHECK">Confirm</string>
 
-
+    <string name="pre_show">Please open TheFloatButtonScan and choose permission.</string>
 
     <!-- exit -->
     <string name="key_test_back_title">Remind</string>
